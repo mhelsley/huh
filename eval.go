@@ -3,7 +3,7 @@ package huh
 import (
 	"time"
 
-	"github.com/mitchellh/hashstructure/v2"
+	"github.com/gohugoio/hashstructure"
 )
 
 // Eval is an evaluatable value, it stores a cached value and a function to
@@ -26,7 +26,7 @@ type Eval[T any] struct {
 const spinnerShowThreshold = 25 * time.Millisecond
 
 func hash(val any) uint64 {
-	hash, _ := hashstructure.Hash(val, hashstructure.FormatV2, nil)
+	hash, _ := hashstructure.Hash(val, nil)
 	return hash
 }
 

@@ -14,7 +14,7 @@ require (
 	github.com/charmbracelet/x/exp/strings v0.0.0-20240722160745-212f7b056ed0
 	github.com/charmbracelet/x/term v0.2.1
 	github.com/charmbracelet/x/xpty v0.1.2
-	github.com/mitchellh/hashstructure/v2 v2.0.2
+	github.com/gohugoio/hashstructure v0.6.0
 )
 
 require (
