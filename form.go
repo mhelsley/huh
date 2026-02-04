@@ -562,8 +562,8 @@ func (f *Form) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return f, f.CancelCmd
 		}
 
-	case nextFieldMsg:
-		// Form is progressing to the next field, let's save the value of the current field.
+	case nextFieldMsg, prevFieldMsg:
+		// Form is progressing to out of the field, let's save the value of the current field.
 		field := group.selector.Selected()
 		f.results[field.GetKey()] = field.GetValue()
 
@@ -571,6 +571,10 @@ func (f *Form) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		if len(group.Errors()) > 0 {
 			return f, nil
 		}
+
+		// Form is progressing to out of the field, let's save the value of the current field.
+		field := group.selector.Selected()
+		f.results[field.GetKey()] = field.GetValue()
 
 		submit := func() (tea.Model, tea.Cmd) {
 			f.quitting = true
@@ -600,6 +604,10 @@ func (f *Form) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		if len(group.Errors()) > 0 {
 			return f, nil
 		}
+
+		// Form is progressing to out of the field, let's save the value of the current field.
+		field := group.selector.Selected()
+		f.results[field.GetKey()] = field.GetValue()
 
 		for i := f.selector.Index() - 1; i >= 0; i-- {
 			if !f.isGroupHidden(f.selector.Get(i)) {
