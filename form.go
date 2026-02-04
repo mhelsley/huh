@@ -478,7 +478,7 @@ func (f *Form) NextGroup() tea.Cmd {
 	return cmd
 }
 
-// PrevGroup moves the form to the next group.
+// PrevGroup moves the form to the previous group.
 func (f *Form) PrevGroup() tea.Cmd {
 	_, cmd := f.Update(prevGroup())
 	return cmd
@@ -490,7 +490,7 @@ func (f *Form) NextField() tea.Cmd {
 	return cmd
 }
 
-// PrevField moves the form to the next field.
+// PrevField moves the form to the previous field.
 func (f *Form) PrevField() tea.Cmd {
 	_, cmd := f.Update(PrevField())
 	return cmd
