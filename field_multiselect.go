@@ -595,7 +595,7 @@ func (m *MultiSelect[T]) renderOption(option Option[T], cursor, selected bool) s
 		parts = append(parts, styles.UnselectedPrefix.String())
 		parts = append(parts, styles.UnselectedOption.Render(option.Key))
 	}
-	return lipgloss.JoinHorizontal(lipgloss.Left, parts...)
+	return lipgloss.JoinHorizontal(lipgloss.Top, parts...)
 }
 
 func (m *MultiSelect[T]) optionsView() (string, int, int) {

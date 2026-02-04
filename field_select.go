@@ -601,7 +601,7 @@ func (s *Select[T]) optionsView() (string, int, int) {
 		return lipgloss.NewStyle().
 				Width(s.width).
 				Render(lipgloss.JoinHorizontal(
-					lipgloss.Left,
+					lipgloss.Top,
 					styles.PrevIndicator.Faint(s.selected <= 0).String(),
 					option,
 					styles.NextIndicator.Faint(s.selected == len(s.filteredOptions)-1).String(),
@@ -646,13 +646,13 @@ func (s *Select[T]) renderOption(option Option[T], selected bool) string {
 
 	if selected {
 		return lipgloss.JoinHorizontal(
-			lipgloss.Left,
+			lipgloss.Top,
 			cursor,
 			styles.SelectedOption.Render(key),
 		)
 	}
 	return lipgloss.JoinHorizontal(
-		lipgloss.Left,
+		lipgloss.Top,
 		strings.Repeat(" ", cursorW),
 		styles.UnselectedOption.Render(key),
 	)
