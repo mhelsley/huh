@@ -304,12 +304,14 @@ func (g *Group) getContent() (int, string) {
 		g.selector.Selected().WithHeight(g.height)
 		fields.WriteString(g.selector.Selected().View())
 	} else {
+		selectedIdx := g.selector.Index()
+		numGaps := g.selector.Total()-1
 		g.selector.Range(func(i int, field Field) bool {
-			if i == g.selector.Index() {
+			if i == selectedIdx {
 				offset = lipgloss.Height(fields.String())
 			}
 			fields.WriteString(field.View())
-			if i < g.selector.Total()-1 {
+			if i < numGaps {
 				fields.WriteString(gap)
 			}
 			return true
