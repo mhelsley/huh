@@ -305,10 +305,10 @@ func (g *Group) getContent() (int, string) {
 		fields.WriteString(g.selector.Selected().View())
 	} else {
 		g.selector.Range(func(i int, field Field) bool {
-			fields.WriteString(field.View())
 			if i == g.selector.Index() {
-				offset = lipgloss.Height(fields.String()) - lipgloss.Height(field.View())
+				offset = lipgloss.Height(fields.String())
 			}
+			fields.WriteString(field.View())
 			if i < g.selector.Total()-1 {
 				fields.WriteString(gap)
 			}
